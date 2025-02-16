@@ -6,43 +6,17 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        headerShown: true,
+        headerShown: false,
         tabBarShowLabel: false,
-        tabBarStyle: Platform.select({
-          ios: {
-            backgroundColor: "transparent",
-            elevation: 0,
-            borderTopWidth: 0,
-          },
-          android: {
-            backgroundColor: "transparent",
-            elevation: 0,
-            borderTopWidth: 0,
-            height: 65,
-          },
-        }),
+        tabBarStyle: {
+          display: "none", // Hide default tab bar
+        },
       }}
       tabBar={(props) => <CustomTabBar {...props} />}
     >
-      <Tabs.Screen
-        name="home"
-        options={{
-          title: "Нүүр",
-        }}
-      />
-      <Tabs.Screen
-        name="events"
-        options={{
-          title: "Арга хэмжээ",
-          href: null, // Hide from tab bar
-        }}
-      />
-      <Tabs.Screen
-        name="profile"
-        options={{
-          title: "Профайл",
-        }}
-      />
+      <Tabs.Screen name="home" />
+      <Tabs.Screen name="events" />
+      <Tabs.Screen name="profile" />
     </Tabs>
   );
 }
